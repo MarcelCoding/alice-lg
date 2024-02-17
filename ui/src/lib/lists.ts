@@ -1,8 +1,7 @@
-
-/** 
+/**
  * Intersect lists: [x | x <- A, x `elem` B]
  */
-export function intersect(a, b) {
+export function intersect<T>(a: T[], b: T[]): T[] {
   let res = [];
   for (const e of a) {
     for (const k of b) {
@@ -18,10 +17,10 @@ export function intersect(a, b) {
 /**
  * Resolve list with dict: [dict[x] or x | x <- L]
  */
-export function resolve(dict, list) {
-  let result = [];
+export function resolve<T extends (string | number | symbol), X>(dict: Record<T, X>, list: T[]): (T | X)[] {
+  let result: (T | X)[] = [];
   for (const e of list) {
-    result.push(dict[e]||e); 
+    result.push(dict[e]||e);
   }
   return result;
 }

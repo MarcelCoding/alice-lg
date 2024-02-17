@@ -1,4 +1,3 @@
-
 /**
  * Join list of words with ',' and provide a glue
  * for the last element.
@@ -7,13 +6,13 @@
  *   humanizedJoin(["foo", "bar", "baz"], "or") ->
  *   "foo, bar or baz"
  */
-export function humanizedJoin(list, glue="and") {
+export function humanizedJoin(list: string[], glue: string = "and") {
   // Doing this the other way round in one step would be nice.
   let [last, ...init] = list.reverse();
   init = init.reverse();
   if (init.length === 0) {
     return last;
   }
-  return init.join(", ") + ` ${glue} ${last}`; 
+  return `${init.join(", ")} ${glue} ${last}`;
 }
 
