@@ -1,3 +1,5 @@
+import { expect, test } from 'vitest'
+
 import { render, screen }
   from '@testing-library/react';
 
@@ -39,7 +41,7 @@ test('renders RpkiIndicator with a valid route', () => {
 });
 
 /**
- * Test rendering the RpkiIndicator component with 
+ * Test rendering the RpkiIndicator component with
  * an rpki unknown route.
  */
 test('renders RpkiIndicator with an unknown route', () => {

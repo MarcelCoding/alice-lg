@@ -1,15 +1,15 @@
-
+import { expect, test , vi} from 'vitest'
 import {render} from '@testing-library/react';
 
 import WaitingCard from 'app/components/spinners/WaitingCard';
 
 beforeEach(() => {
-  jest.useFakeTimers()
+  vi.useFakeTimers()
 });
 
 afterEach(() => {
-  jest.runOnlyPendingTimers()
-  jest.useRealTimers()
+  vi.runOnlyPendingTimers()
+  vi.useRealTimers()
 });
 
 test("render waiting card", async () => {
