@@ -100,7 +100,7 @@
   .routeservers-groups-select {
     display: block;
     padding: 0px 3px;
-    
+
     .dropdown {
       .dropdown-menu {
          display: block;
@@ -128,7 +128,7 @@
        flex-direction: row;
        justify-content: space-between;
        flex-wrap: wrap;
-       // column-gap: 15px;
+       /* column-gap: 15px; */
 
        ul {
          flex: 1;
@@ -142,7 +142,7 @@
 
          button {
            border-radius: 3px;
-           padding: 3px 8px; 
+           padding: 3px 8px;
 
            &:hover {
              color: #337ab7;
@@ -176,7 +176,7 @@
         box-shadow: 0px 1px 0px #555;
       }
     }
-    
+
     .btn-option {
         display: block;
         text-align: left;

@@ -13,6 +13,9 @@ export default defineConfig({
       api: resolve(__dirname, "src/api"),
     },
   },
+  css: {
+    transformer: "lightningcss",
+  },
   server: {
     proxy: {
       '/api': {
@@ -23,6 +26,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'build',
+    cssMinify: "lightningcss",
   },
   test: {
     globals: true,
