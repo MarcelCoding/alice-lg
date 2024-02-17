@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest'
 import {render, screen} from '@testing-library/react';
 
 import RelativeTimestamp from 'app/components/datetime/RelativeTimestamp';

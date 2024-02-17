@@ -8,7 +8,7 @@ deps:
 	yarn install
 
 test: deps
-	yarn test --ci --all --watchAll=false
+	yarn test
 
 clean:
 	rm -rf ./build

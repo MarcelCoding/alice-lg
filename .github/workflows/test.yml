@@ -11,9 +11,9 @@ jobs:
       postgres:
         image: postgres
         env:
-          POSTGRES_USER: alice 
-          POSTGRES_PASSWORD: alice 
-          POSTGRES_DB: alice 
+          POSTGRES_USER: alice
+          POSTGRES_PASSWORD: alice
+          POSTGRES_DB: alice
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -34,7 +34,7 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
 
       - name: Add UI build stub
         working-directory: ./ui
@@ -66,7 +66,7 @@ jobs:
         env:
           PGHOST: localhost
           PGPORT: 5432
-          PGUSER: alice 
+          PGUSER: alice
           PGPASSWORD: alice
         working-directory: ./db
         run: |

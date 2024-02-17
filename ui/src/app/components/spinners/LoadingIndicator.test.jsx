@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest'
 import {render} from '@testing-library/react';
 
 import LoadingIndicator from 'app/components/spinners/LoadingIndicator';
