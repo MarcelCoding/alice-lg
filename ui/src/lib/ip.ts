@@ -1,10 +1,9 @@
-
 import bigInt from 'big-integer'
 
 /**
  * Convert IPv6 to big integer
  */
-export function IPv6ToNumeric(addr) {
+export function IPv6ToNumeric(addr: string): bigInt.BigInteger {
   const parts = addr.split(":"); // let's se what we can do about the :: expansion
   let expanded = [];
 
@@ -22,7 +21,7 @@ export function IPv6ToNumeric(addr) {
 /**
  * Convert IPv4 to int
  */
-export function IPv4ToNumeric(addr) {
+export function IPv4ToNumeric(addr: string):number {
   const octets = addr.split('.');
   return parseInt(octets[0], 10) * 16777216 + // 256^3
          parseInt(octets[1], 10) * 65536 + // 256^2
@@ -33,7 +32,7 @@ export function IPv4ToNumeric(addr) {
 /**
  * Convert IPv4 or IPv6 to Numeric
  */
-export function ipToNumeric(addr) {
+export function ipToNumeric(addr: string): number | bigInt.BigInteger {
   if (addr.includes(":")) {
     return IPv6ToNumeric(addr);
   }
