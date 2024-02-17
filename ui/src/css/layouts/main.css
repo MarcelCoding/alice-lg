@@ -35,10 +35,11 @@ body,
   flex: 1 0;
   flex-direction: column;
   background: #f4f5f7;
-  background-image: url('../img/alicebg.png');
+  background-image: url('../img/alicebg.webp');
   background-position: 90% 100%;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  image-rendering: crisp-edges;
   padding: 0px;
   margin: 0px;
 }
