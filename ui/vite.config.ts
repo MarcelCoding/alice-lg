@@ -19,7 +19,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://lg.de-cix.net',
+        target: 'https://lg.dd-ix.net',
         changeOrigin: true,
       },
     },

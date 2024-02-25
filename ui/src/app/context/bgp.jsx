@@ -1,11 +1,6 @@
+import {useCallback, useMemo} from 'react';
 
-import { useMemo
-       , useCallback
-       }
-  from 'react';
-
-import { useConfig }
-  from 'app/context/config';
+import {useConfig} from 'app/context/config';
 
 /**
  * Create string representation from community
@@ -24,7 +19,7 @@ const expandVars = (str, vars) => {
   }
   let res = str;
   vars.map((v, i) => {
-    res = res.replace(`$${i}`, v); 
+    res = res.replace(`$${i}`, v);
     return 0;
   });
   return res;
@@ -37,7 +32,7 @@ const expandVars = (str, vars) => {
 const resolveCommunity = (base, community) => {
   let lookup = base;
   for (const part of community) {
-    if (typeof(lookup) !== "object") {
+    if (lookup === undefined || lookup === null || typeof (lookup) !== "object") {
       return null;
     }
     let res = lookup[part];
@@ -134,9 +129,9 @@ export const useBlackholeCommunities = () => {
  */
 export const matchCommunityRange = (community, range) => {
   if (community.length !== range.length) {
-    return false; 
+    return false;
   }
-  
+
   for (let i in community) {
     let c = community[i];
     let rs = range[i][0];
