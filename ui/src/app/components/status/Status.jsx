@@ -85,12 +85,12 @@ const Status = () => {
       {lastReboot &&
         <tr>
           <td><FontAwesomeIcon icon={faClock} /></td>
-          <td>Last Reboot: <b><DateTime value={lastReboot} /></b></td>
+          <td>Last Reboot: <b><DateTime value={new Date(lastReboot)} /></b></td>
         </tr>}
       {lastReconfig &&
         <tr>
           <td><FontAwesomeIcon icon={faClock} /></td>
-          <td>Last Reconfig: <b><DateTime value={lastReconfig} /></b></td>
+          <td>Last Reconfig: <b><DateTime value={new Date(lastReconfig)} /></b></td>
         </tr>}
 
       {rsStatus.message &&
