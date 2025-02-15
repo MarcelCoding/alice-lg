@@ -7,27 +7,27 @@
 
 import axios from 'axios';
 
-import { useState
-       , useEffect
-       , useContext
-       , useRef
-       , useMemo
-       , createContext
-       }
+import {
+  useState
+  , useEffect
+  , useContext
+  , useRef
+  , useMemo
+  , createContext
+}
   from 'react';
 import { useParams, useLocation }
   from 'react-router-dom';
 
-import { useErrorHandler }
-  from 'app/context/errors';
+import { useErrorHandler } from './errors';
 
 
 // Contexts
-const RouteServersContext      = createContext([]);
+const RouteServersContext = createContext([]);
 const RouteServerStatusContext = createContext();
 
-export const useRouteServers      = () => useContext(RouteServersContext);
-export const useRouteServerStatus = () =>  useContext(RouteServerStatusContext);
+export const useRouteServers = () => useContext(RouteServersContext);
+export const useRouteServerStatus = () => useContext(RouteServerStatusContext);
 
 
 /**
@@ -64,8 +64,8 @@ export const useRouteServerId = () => {
  * route server.
  */
 export const useRouteServer = () => {
-  const routeServerId     = useRouteServerId();
-  const routeServers      = useRouteServers();
+  const routeServerId = useRouteServerId();
+  const routeServers = useRouteServers();
   return routeServers.find((rs) => rs.id === routeServerId)
 }
 
@@ -89,11 +89,11 @@ export const useRouteServersMap = () => {
  * RouteServersProvider loads the route servers from the
  * backend and uses these as provider value.
  */
-export const RouteServersProvider = ({children}) => {
-  const init          = useRef();
-  const handleError   = useErrorHandler();
-  const [rs, setRs]   = useState([]);
-  
+export const RouteServersProvider = ({ children }) => {
+  const init = useRef();
+  const handleError = useErrorHandler();
+  const [rs, setRs] = useState([]);
+
   // Load route servers from backend
   useEffect(() => {
     if (init.current) {
@@ -101,10 +101,10 @@ export const RouteServersProvider = ({children}) => {
     }
     axios.get('/api/v1/routeservers')
       .then(
-        ({data}) => setRs(data.routeservers),
+        ({ data }) => setRs(data.routeservers),
         (error) => handleError(error)
       );
-      init.current = true;
+    init.current = true;
   }, [handleError]);
 
   return (
@@ -118,17 +118,17 @@ export const RouteServersProvider = ({children}) => {
  * RouteServerStatusProvider loads the route server status
  * and provides it through the context
  */
-export const RouteServerStatusProvider = ({children, routeServerId}) => {
-  const handleError         = useErrorHandler();
+export const RouteServerStatusProvider = ({ children, routeServerId }) => {
+  const handleError = useErrorHandler();
   const [status, setStatus] = useState({
     loading: false,
   });
 
   useEffect(() => {
-    setStatus({loading: true}); // initial state
+    setStatus({ loading: true }); // initial state
     axios.get(`/api/v1/routeservers/${routeServerId}/status`)
       .then(
-        ({data}) => setStatus({
+        ({ data }) => setStatus({
           loading: false,
           ...data.status,
         }),

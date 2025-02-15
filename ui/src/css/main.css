@@ -1,7 +1,6 @@
 @import './layouts/main.css';
 
 @import './components/jumbotron.css';
-@import './components/sidebar.css';
 @import './components/status.css';
 @import './components/card.css';
 @import './components/modal.css';

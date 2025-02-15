@@ -59,8 +59,8 @@ const StartPage = () => {
       <PageHeader></PageHeader>
 
       <div className="jumbotron">
-        <h1><Content id="welcome.title">Welcome to Alice!</Content></h1>
-        <p><Content id="welcome.tagline">Your friendly BGP looking glass</Content></p>
+        <h1><Content id="welcome.title">DD-IX Looking Glass</Content></h1>
+        <p><Content id="welcome.tagline">powered by Alice, your friendly BIRD Looking Glass</Content></p>
       </div>
 
       <StartGlobalSearch />

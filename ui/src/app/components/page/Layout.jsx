@@ -15,30 +15,33 @@ import Content
 import Errors
   from 'app/components/errors/Errors';
 import NavigationSidebar
-  from 'app/components/navigation/Sidebar';
+  from '../navigation/Sidebar';
 
-const Layout = ({children}) => {
+import styles from "./Layout.module.css";
+
+const Layout = ({ children }) => {
   const pageRef = useRef();
 
   useEffect(() => {
     onLayoutReadyApi(pageRef.current);
   }, [pageRef]);
 
-  // Main Layout
   return (
-    <div className="page" ref={pageRef}>
-      <Errors />
+    <div className={styles.parent} ref={pageRef}>
       <NavigationSidebar />
-      <div className="page-body">
-        <main className="page-content">
-          <div className="main-content-wrapper">
-            {children}
+      <main className={styles.main}>
+        <div className={styles.body}>
+          <Errors />
+          {children}
+        </div>
+        <footer className={styles.footer}>
+          <a href="https://github.com/alice-lg/alice-lg" target="_blank">Alice - Through the Looking Glass</a>
+          <div className={styles.leaglLinks}>
+            <a href="https://dd-ix.net/privacy-policy" target="_blank">Privacy Policy</a>
+            <a href="https://dd-ix.net/imprint" target="_blank">Imprint</a>
           </div>
-          <footer className="page-footer">
-            <Content id="footer"></Content> 
-          </footer>
-        </main>
-      </div>
+        </footer>
+      </main>
     </div>
   );
 }
