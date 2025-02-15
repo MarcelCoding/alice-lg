@@ -1,9 +1,6 @@
 import { createRoot }
   from 'react-dom/client';
 
-import reportWebVitals
-  from './reportWebVitals';
-
 import "@fontsource/source-sans-pro/300.css";
 import "@fontsource/source-sans-pro/400.css";
 import "@fontsource/source-sans-pro/700.css";
@@ -22,5 +19,3 @@ window.Alice = Api;
 const root = createRoot(document.getElementById('app'));
 
 root.render(<Main />);
-
-reportWebVitals();
