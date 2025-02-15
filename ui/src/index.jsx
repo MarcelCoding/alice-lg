@@ -1,9 +1,9 @@
 import { createRoot }
   from 'react-dom/client';
 
-import "@fontsource/source-sans-pro/300.css";
-import "@fontsource/source-sans-pro/400.css";
-import "@fontsource/source-sans-pro/700.css";
+import "@fontsource/dm-sans/300.css";
+import "@fontsource/dm-sans/400.css";
+import "@fontsource/dm-sans/700.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/main.css';
 
