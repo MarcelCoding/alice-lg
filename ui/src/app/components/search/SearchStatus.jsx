@@ -6,9 +6,10 @@ import { useRouteServersMap }
   from 'app/context/route-servers';
 import { useApiStatus }
   from 'app/context/api-status';
-import { useRoutesLoading
-       , useRoutesReceived 
-       }
+import {
+  useRoutesLoading
+  , useRoutesReceived
+}
   from 'app/context/routes';
 import { useSearchStatus }
   from 'app/context/search';
@@ -44,9 +45,9 @@ const RefreshIncomplete = () => {
     <p className="text-danger">
       There are currently <b>no results</b> from:<br />
 
-      {notInitialized.map((name) => 
+      {notInitialized.map((name) =>
         <span key={name}>{name}<br /></span>
-      )} 
+      )}
     </p>
   );
 }
@@ -72,18 +73,18 @@ const RefreshState = () => {
         </li>
       );
     }
-    
+
     // This means cache is currently being rebuilt
     return (
       <li>
         <RefreshIncomplete />
 
         Routes cache was built
-          <b><RelativeTime
-            fuzzyNow={5}
-            pastEvent={true}
-            value={cachedAt} /></b>
-        and is currently being refreshed. 
+        <b><RelativeTime
+          fuzzyNow={5}
+          pastEvent={true}
+          value={cachedAt} /></b>
+        and is currently being refreshed.
       </li>
     );
   }
@@ -102,19 +103,19 @@ const RefreshState = () => {
     <li>
       <RefreshIncomplete />
 
-      Routes cache was built <b><RelativeTime fuzzyNow={5} value={cachedAt} /> </b>
+      Routes cache was built <b><RelativeTime fuzzyNow={5} value={cachedAt} /> </b><br/>
       and will be refreshed <b><RelativeTime value={cacheTtl} futureEvent={true} /></b>.
     </li>
   );
 }
 
 const SearchStatus = () => {
-  const {error} = useRoutesReceived();
+  const { error } = useRoutesReceived();
   const isLoading = useRoutesLoading();
   const { queryDurationMs
-        , totalReceived 
-        , totalFiltered
-        } = useSearchStatus();
+    , totalReceived
+    , totalFiltered
+  } = useSearchStatus();
 
 
   if (isLoading) {
@@ -127,17 +128,15 @@ const SearchStatus = () => {
   const queryDuration = queryDurationMs && queryDurationMs.toFixed(2);
 
   return (
-    <div className="card">
-      <div className="lookup-result-summary">
-        <ul>
-          <li>
-            Found <b>{totalReceived}</b> received 
-            and <b>{totalFiltered}</b> filtered routes.
-          </li>
-          <li>Query took <b>{queryDuration} ms</b> to complete.</li>
-          <RefreshState />
-        </ul>
-      </div>
+    <div className="my-card">
+      <ul style={{ listStyleType: "none", padding: 0 }}>
+        <li>
+          Found <b>{totalReceived}</b> received
+          and <b>{totalFiltered}</b> filtered routes.
+        </li>
+        <li>Query took <b>{queryDuration} ms</b> to complete.</li>
+        <RefreshState />
+      </ul>
     </div>
   );
 }

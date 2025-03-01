@@ -1,13 +1,5 @@
-
-import { useMemo
-       , useCallback
-       }
-  from 'react';
-
-import { useSearchParams
-       , useLocation
-       }
-  from 'react-router-dom';
+import { useMemo, useCallback } from 'react';
+import { useSearchParams, useLocation } from 'react-router-dom';
 
 /**
  * Well-known parameters
@@ -24,8 +16,8 @@ export const PARAM_SORT = "s";
  * paramsToQuery creates an object with query params
  * as key / value pairs for convenient access.
  */
-const paramsToQuery = (params) => {
-  let q = {};
+function paramsToQuery(params: URLSearchParams): Record<string, string> {
+  let q: Record<string, string> = {};
   for (const [k, v] of params) {
     q[k] = v;
   }
@@ -36,8 +28,8 @@ const paramsToQuery = (params) => {
  * cleanParams removes all parameters without a
  * value.
  */
-export const cleanParams = (params) => {
-  let filtered = {};
+export function cleanParams(params: Record<string, string | null>): Record<string, string> {
+  let filtered: Record<string, string> = {};
   for (const k in params) {
     if (!params[k]) {
       continue;
@@ -51,7 +43,7 @@ export const cleanParams = (params) => {
  * encodeQuery makes URLSearchParams from
  * cleaned params.
  */
-export const encodeQuery = (params) => {
+export function encodeQuery(params: Record<string, string | null>) {
   return new URLSearchParams(cleanParams(params));
 }
 
@@ -62,13 +54,13 @@ export const encodeQuery = (params) => {
  * To prevent loops, the search parameters are only updated
  * if they differ.
  */
-export const useQuery = (defaults={}) => {
+export function useQuery(defaults: Record<string, string> = {}): [Record<string, string>, (value: Record<string, string> | ((query: Record<string, string>) => Record<string, string>)) => void] {
   const [params, setParams] = useSearchParams(defaults);
   const query = useMemo(() => paramsToQuery(params), [params]);
 
-  const setQuery = useCallback((q) => {
+  const setQuery = useCallback((q: Record<string, string> | ((query: Record<string, string>) => Record<string, string>)) => {
     let next;
-    if (typeof(q) === "function") {
+    if (typeof (q) === "function") {
       next = q(query); // Inject current parameters
     } else {
       next = q;
@@ -86,7 +78,7 @@ export const useQuery = (defaults={}) => {
  */
 export const useMakeQueryLocation = () => {
   const location = useLocation();
-  const makeLocation = useCallback((q, overrides={}) => {
+  const makeLocation = useCallback((q: Record<string, string | null>, overrides = {}) => {
     const next = encodeQuery(q);
     return {
       ...location,
@@ -97,7 +89,7 @@ export const useMakeQueryLocation = () => {
   return makeLocation;
 }
 
-export const useQueryLocation = (query, overrides={}) => {
+export const useQueryLocation = (query: Record<string, string | null>, overrides = {}) => {
   const makeLocation = useMakeQueryLocation();
   return useMemo(() => makeLocation(query, overrides), [
     makeLocation, query, overrides,

@@ -5,6 +5,48 @@ html {
   padding: 0px;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+p,
+ul {
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.my-card {
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 2rem;
+}
+
+.page-body {
+  padding: 2rem;
+}
+
+.page-body,
+.my-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.page-body-columns {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* ================ */
+
 .page-header {
   line-height: 59px;
   background: white;
