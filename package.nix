@@ -3,10 +3,8 @@
 , stdenv
 , pnpm
 , gitUpdater
-, yarn
 , nodejs
 , nixosTests
-, fixup-yarn-lock
 }:
 
 buildGoModule rec {
@@ -14,7 +12,7 @@ buildGoModule rec {
   version = "6.1.0";
 
   src = lib.cleanSource ./.;
-  vendorHash = "sha256-8N5E1CW5Z7HujwXRsZLv7y4uNOJkjj155kmX9PCjajQ=";
+  vendorHash = "sha256-OkOUgW6BHJKIdY1soMqTXhL6RYy3567iL1/VZasIdvQ=";
 
   passthru.ui = stdenv.mkDerivation (finalAttrs: {
     pname = "alice-lg-ui";
@@ -23,7 +21,7 @@ buildGoModule rec {
 
     pnpmDeps = pnpm.fetchDeps {
       inherit (finalAttrs) pname version src;
-      hash = "sha256-lgmVVMSBR8Zf4JGwan1Ay/w9PEBXF2LbVUOW7eIVAZo=";
+      hash = "sha256-YG8bqC4iz/5NT2SxjKvl76wX04HmHktKrtYpBBoWcD8=";
     };
 
     nativeBuildInputs = [ nodejs pnpm.configHook ];
