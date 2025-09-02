@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import RouteServers from './RouteServers';
 import logo from "../../../img/logo.svg";
-import styles from "./Sidebar.module.css";
+import styles from "./Sidebar.module.scss";
 import { FC } from 'react';
 
 const Sidebar: FC = () => {

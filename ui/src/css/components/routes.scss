@@ -230,23 +230,23 @@
  * Related Peers
  */
 .related-peers {
-  --tabHeight: 23px;
-  --shadowOffset: 3px;
+  $tabHeight: 23px;
+  $shadowOffset: 3px;
 
   display: block;
   position: absolute;
   overflow: hidden;
 
-  padding: var(--shadowOffset) var(--shadowOffset) 0px var(--shadowOffset);
+  padding: $shadowOffset $shadowOffset 0px $shadowOffset;
   margin: 0px;
 
   list-style: none;
 
-  top: calc(-1 * var(--tabHeight)) - var(--shadowOffset);
+  top: calc(-1 * $tabHeight) - $shadowOffset;
 
   li {
-    height: var(--tabHeight);
-    line-height: var(--tabHeight);
+    height: $tabHeight;
+    line-height: $tabHeight;
 
     display: inline-block;
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from "./RouteServers.module.css";
+import styles from "./RouteServers.module.scss";
 import { FC } from 'react';
 import { useErrorHandler } from "../../context/errors";
 import { useRouteServers } from "../../context/route-servers";

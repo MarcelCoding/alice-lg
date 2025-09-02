@@ -17,7 +17,7 @@ import Errors
 import NavigationSidebar
   from '../navigation/Sidebar';
 
-import styles from "./Layout.module.css";
+import styles from "./Layout.module.scss";
 
 const Layout = ({ children }) => {
   const pageRef = useRef();

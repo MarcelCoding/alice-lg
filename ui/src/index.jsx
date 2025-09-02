@@ -5,7 +5,7 @@ import "@fontsource/dm-sans/300.css";
 import "@fontsource/dm-sans/400.css";
 import "@fontsource/dm-sans/700.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import './css/main.css';
+import './css/main.scss';
 
 import Main
   from './app/Main';
