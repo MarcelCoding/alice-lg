@@ -21,7 +21,8 @@ buildGoModule rec {
 
     pnpmDeps = pnpm.fetchDeps {
       inherit (finalAttrs) pname version src;
-      hash = "sha256-kUOEqC7k9rCcwWDILT113hPVbT/+6ud/u18zQ/N08EI=";
+      fetcherVersion = 2;
+      hash = "sha256-mkBv9WwooFDtgcBtBAPCguvfnYq/+HLlr+3ttiJYVE8=";
     };
 
     nativeBuildInputs = [ nodejs pnpm.configHook ];
